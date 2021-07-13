@@ -1,0 +1,33 @@
+.transfer {
+  display: grid; 
+  grid-template-columns: 0.9fr 1.1fr; 
+  grid-template-rows: 0.5fr 1.3fr 1.2fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    "header header"
+    "scan-item current-box"
+    "scan-item move-to-box"
+    "status-message status-message"; 
+
+}
+.header { 
+  grid-area: header; 
+}
+.scan-item { 
+  grid-area: scan-item; 
+  border: 1px solid black;
+
+}
+.current-box { 
+  grid-area: current-box; 
+  border: 1px solid black;
+
+}
+.move-to-box { 
+  grid-area: move-to-box; 
+  border: 1px solid black;
+
+}
+.status-message { 
+  grid-area: status-message; 
+}
