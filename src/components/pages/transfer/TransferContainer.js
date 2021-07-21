@@ -4,6 +4,8 @@
 
 import React, { useState } from "react";
 
+import { getBoxOfItem, transferItem } from "../../../api";
+
 import "../../../styles/Transfer.css";
 
 function TransferContainer(props) {
@@ -11,8 +13,7 @@ function TransferContainer(props) {
 
   const handleScanItem = (event) => {
     if (event.key === "Enter") {
-      console.log("SCANNED ITEM /// AXIOS CALL GOES HERE");
-      setCurrentBox(event.target.value);
+      getBoxOfItem(event.target.value, setCurrentBox);
     }
   };
 
@@ -25,13 +26,14 @@ function TransferContainer(props) {
       </div>
       <div class="current-box">
         Current box:
+        <br />
         {currentBox}
       </div>
       <div class="move-to-box">
         Move to box:
         <input type="text" name="move-to-box-input" />
       </div>
-      <div class="status-message">success message goes here</div>
+      <div class="status-message"></div>
     </div>
   );
 }
