@@ -1,15 +1,15 @@
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch } from "react-router-dom";
 
-import logo from '../logo.svg';
-import Transfer from './pages/Transfer';
-import '../App.css';
+import logo from "../logo.svg";
+import TransferContainer, { TransferPage } from "./pages/transfer";
+import "../App.css";
 
 function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path='/transfer'>
-          <Transfer />
+        <Route path="/transfer">
+          <TransferPage />
         </Route>
       </Switch>
     </div>
