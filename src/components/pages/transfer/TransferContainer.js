@@ -10,10 +10,20 @@ import "../../../styles/Transfer.css";
 
 function TransferContainer(props) {
   const [currentBox, setCurrentBox] = useState("empty");
+  const [currentObjectBarcode, setCurrentObjectBarcode] = useState("");
 
   const handleScanItem = (event) => {
     if (event.key === "Enter") {
+      setCurrentObjectBarcode(event.target.value);
       getBoxOfItem(event.target.value, setCurrentBox);
+      console.log(document.getElementsByName("scan-item-input")[0]);
+      document.getElementsByName("move-to-box-input")[0].focus();
+    }
+  };
+
+  const handleScanBox = (e) => {
+    if (e.key === "Enter") {
+      transferItem(currentObjectBarcode, e.target.value);
     }
   };
 
@@ -31,7 +41,7 @@ function TransferContainer(props) {
       </div>
       <div class="move-to-box">
         Move to box:
-        <input type="text" name="move-to-box-input" />
+        <input type="text" name="move-to-box-input" onKeyDown={handleScanBox} />
       </div>
       <div class="status-message"></div>
     </div>
