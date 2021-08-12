@@ -1,7 +1,8 @@
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
-import logo from "../logo.svg";
-import TransferContainer, { TransferPage } from "./pages/transfer";
+// import logo from "../logo.svg";
+import { TransferPage } from "./pages/transfer";
+import { TakenPage } from "./pages/taken";
 import "../App.css";
 
 function App() {
@@ -10,6 +11,9 @@ function App() {
       <Switch>
         <Route path="/transfer">
           <TransferPage />
+        </Route>
+        <Route path="/taken">
+          <TakenPage />
         </Route>
       </Switch>
     </div>
