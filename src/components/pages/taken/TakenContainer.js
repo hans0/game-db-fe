@@ -10,6 +10,8 @@ function TakenContainer() {
   const handleScanObject = async (event) => {
     if (event.key === "Enter") {
       setBarcode(event.target.value);
+      setTaken("");
+      setCreated("False");
       isBarcodeTaken(event.target.value, setTaken);
       document.getElementsByName("scan-barcode-input")[0].value = "";
       document.getElementsByName("scan-barcode-input")[0].focus();
@@ -19,6 +21,8 @@ function TakenContainer() {
   const handleCreate = (event) => {
     console.log("handleCreate " + barcode);
     createBarcode(barcode, setCreated);
+    setTaken("");
+    // document.getElementsByName("scan-barcode-input")[0].focus();
   };
 
   return (
