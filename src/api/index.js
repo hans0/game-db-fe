@@ -4,7 +4,6 @@ import axios from "axios";
 const herokuUrl = "https://retro-game-db.herokuapp.com";
 
 const getBoxOfItem = (itemBarcode, setterFunction) => {
-  // console.log(itemBarcode);
   axios
     .get(`${herokuUrl}/api/objects/${itemBarcode}`)
     .then((res) => {
@@ -17,7 +16,6 @@ const getBoxOfItem = (itemBarcode, setterFunction) => {
 };
 
 const transferItem = async (objectBarcode, boxBarcode, statusSetter) => {
-  // console.log(objectBarcode);
   const transferRequest = {
     objectBarcode: objectBarcode,
     boxBarcode: boxBarcode,
