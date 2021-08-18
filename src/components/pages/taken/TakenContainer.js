@@ -14,7 +14,13 @@ function TakenContainer() {
       setCreated("False");
       isBarcodeTaken(event.target.value, setTaken);
       document.getElementsByName("scan-barcode-input")[0].value = "";
-      document.getElementsByName("scan-barcode-input")[0].focus();
+      // setTimeout(() => {
+      //   if (document.getElementsByName("create-button")[0] !== undefined) {
+      //     document.getElementsByName("create-button")[0].focus();
+      //   } else {
+      //     document.getElementsByName("scan-barcode-input")[0].focus();
+      //   }
+      // }, 3000);
     }
   };
 
@@ -22,7 +28,7 @@ function TakenContainer() {
     console.log("handleCreate " + barcode);
     createBarcode(barcode, setCreated);
     setTaken("");
-    // document.getElementsByName("scan-barcode-input")[0].focus();
+    document.getElementsByName("scan-barcode-input")[0].focus();
   };
 
   return (
@@ -39,7 +45,13 @@ function TakenContainer() {
         Barcode {barcode} is{" "}
         {taken === `False` || taken === "" ? `Not taken` : `Taken`}
       </div>
-      {taken === `False` ? <button onClick={handleCreate}>Create?</button> : ""}
+      {taken === `False` ? (
+        <button name="create-button" onClick={handleCreate}>
+          Create?
+        </button>
+      ) : (
+        ""
+      )}
       {created === `False` || created === ``
         ? ""
         : `${barcode} created in database`}
